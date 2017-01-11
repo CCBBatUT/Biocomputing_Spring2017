@@ -1,7 +1,7 @@
 # General
-name: "Biocomputing 2016"
+name: "Biocomputing 2017"
 description: "Peer-led Introduction to Computational Biology"
-baseurl: "/Biocomputing_Spring2016"
+baseurl: "/Biocomputing_Spring2017"
 future: true
 
 
