@@ -1,0 +1,253 @@
+LOCUS       NP_000549                142 aa                     PRI 09-AUG-2014
+DEFINITION  hemoglobin subunit alpha [Homo sapiens].
+ACCESSION   NP_000549
+VERSION     NP_000549.1  GI:4504347
+KEYWORDS    RefSeq.
+SOURCE      Homo sapiens (human)
+  ORGANISM  Homo sapiens
+            Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+            Mammalia; Eutheria; Euarchontoglires; Primates; Haplorrhini;
+            Catarrhini; Hominidae; Homo.
+REFERENCE   1  (residues 1 to 142)
+  AUTHORS   Sanpakit K and Viprakasit V.
+  TITLE     Variable genotype-phenotype correlations in patients with a rare
+            nondeletional alpha-thalassemia; Hb Pak Num Po (HBA1: c.396_397insT)
+  JOURNAL   J. Pediatr. Hematol. Oncol. 36 (3), E185-E189 (2014)
+   PUBMED   24136020
+  REMARK    GeneRIF: Mutation in the HBA1 gene is associated with
+            alpha-Thalassemia.
+REFERENCE   2  (residues 1 to 142)
+  AUTHORS   Singha K, Fucharoen G and Fucharoen S.
+  TITLE     Interaction of hemoglobin Grey Lynn (Vientiane) with a
+            non-deletional alpha(+)-thalassemia in an adult Thai proband
+  JOURNAL   Biochem Med (Zagreb) 24 (1), 167-174 (2014)
+   PUBMED   24627726
+  REMARK    GeneRIF: Mutation in the hemoglobin Grey Lynn gene is associated
+            with non-deletional alpha thalassemia. Publication Status:
+            Online-Only
+REFERENCE   3  (residues 1 to 142)
+  AUTHORS   Viprakasit V, Ekwattanakit S, Chalaow N, Riolueang S, Wijit S,
+            Tanyut P, Chat-Uthai N and Tachavanich K.
+  TITLE     Clinical presentation and molecular identification of four uncommon
+            alpha globin variants in Thailand. Initiation codon mutation of
+            alpha2-globin Gene (HBA2:c.1delA), donor splice site mutation of
+            alpha1-globin gene (IVSI-1, HBA1:c.95 + 1G>A), hemoglobin Queens
+            Park/Chao Pra Ya (HBA1:c.98T>A) and hemoglobin Westmead
+            (HBA2:c.369C>G)
+  JOURNAL   Acta Haematol. 131 (2), 88-94 (2014)
+   PUBMED   24081251
+  REMARK    GeneRIF: study describes 4 rare nondeletional alpha-thalassemia
+            mutations in Thai individuals, including initiation codon mutation
+            (HBA2:c.1delA), donor splice site mutation (IVSI-1, HBA1:c.95 +
+            1G>A), Hb Queens Park (HBA1:c.98T>A) [alpha32(B13)Met>Lys], and Hb
+            Westmead (HBA2:c.369C>G) [alpha122(H5)His>Gln
+REFERENCE   4  (residues 1 to 142)
+  AUTHORS   Yao XY, Yu J, Chen SP, Xiao JW, Zheng QC, Liu HY, Zhang L, Xian Y
+            and Zou L.
+  TITLE     Prevalence and genetic analysis of alpha-thalassemia and
+            beta-thalassemia in Chongqing area of China
+  JOURNAL   Gene 532 (1), 120-124 (2013)
+   PUBMED   24055728
+  REMARK    GeneRIF: novel mutations in alpha-globin gene in the
+            alpha-thalassemia and beta-thalassemia patients in Chongqing area of
+            China
+REFERENCE   5  (residues 1 to 142)
+  AUTHORS   Ghassemifar R, Forster L, Qadah T and Finlayson J.
+  TITLE     Identification and characterization of two novel and differentially
+            expressed isoforms of human alpha2- and alpha1-globin genes
+  JOURNAL   Hemoglobin 36 (5), 421-432 (2012)
+   PUBMED   22738435
+  REMARK    GeneRIF: This study, for the first time, confirms the presence of
+            two isoforms for both the alpha2- and alpha1-globin genes with
+            varying transcription levels in healthy individuals.
+REFERENCE   6
+  AUTHORS   Rikova,K., Guo,A., Zeng,Q., Possemato,A., Yu,J., Haack,H.,
+            Nardone,J., Lee,K., Reeves,C., Li,Y., Hu,Y., Tan,Z., Stokes,M.,
+            Sullivan,L., Mitchell,J., Wetzel,R., Macneill,J., Ren,J.M., Yuan,J.,
+            Bakalarski,C.E., Villen,J., Kornhauser,J.M., Smith,B., Li,D.,
+            Zhou,X., Gygi,S.P., Gu,T.L., Polakiewicz,R.D., Rush,J. and Comb,M.J.
+  TITLE     Global survey of phosphotyrosine signaling identifies oncogenic
+            kinases in lung cancer
+  JOURNAL   Cell 131 (6), 1190-1203 (2007)
+   PUBMED   18083107
+REFERENCE   7
+  AUTHORS   Zhang,X., Medzihradszky,K.F., Cunningham,J., Lee,P.D.,
+            Rognerud,C.L., Ou,C.N., Harmatz,P. and Witkowska,H.E.
+  TITLE     Characterization of glycated hemoglobin in diabetic patients:
+            usefulness of electrospray mass spectrometry in monitoring the
+            extent and distribution of glycation
+  JOURNAL   J. Chromatogr. B Biomed. Sci. Appl. 759 (1), 1-15 (2001)
+   PUBMED   11499613
+REFERENCE   8  (residues 1 to 142)
+  AUTHORS   Origa,R., Moi,P., Galanello,R. and Cao,A.
+  TITLE     Alpha-Thalassemia
+  JOURNAL   (in) Pagon RA, Adam MP, Ardinger HH, Bird TD, Dolan CR, Fong CT,
+            Smith RJH and Stephens K (Eds.); GENEREVIEWS(R); (1993)
+   PUBMED   20301608
+REFERENCE   9
+  AUTHORS   Shapiro,R., McManus,M.J., Zalut,C. and Bunn,H.F.
+  TITLE     Sites of nonenzymatic glycosylation of human hemoglobin A
+  JOURNAL   J. Biol. Chem. 255 (7), 3120-3127 (1980)
+   PUBMED   7358733
+REFERENCE   10  (residues 1 to 142)
+  AUTHORS   Knuth,A., Pribilla,W., Marti,H.R. and Winterhalter,K.H.
+  TITLE     Hemoglobin Moabit: alpha 86 (F7) Leu leads to Arg: a new unstable
+            abnormal hemoglobin
+  JOURNAL   Acta Haematol. 61 (3), 121-124 (1979)
+   PUBMED   108887
+REFERENCE   11  (residues 1 to 142)
+  AUTHORS   Moo-Penn,W.F., Jue,D.L. and Baine,R.M.
+  TITLE     Hemoglobin J Rovigo (alpha53 Ala replaced by Asp) in association
+            with beta-thalassemia
+  JOURNAL   Hemoglobin 2 (5), 443-445 (1978)
+   PUBMED   31339
+REFERENCE   12  (residues 1 to 142)
+  AUTHORS   Chang,J.C., Temple,G.F., Poon,R., Neumann,K.H. and Kan,Y.W.
+  TITLE     The nucleotide sequences of the untranslated 5' regions of human
+            alpha- and beta-globin mRNAs
+  JOURNAL   Proc. Natl. Acad. Sci. U.S.A. 74 (11), 5145-5149 (1977)
+   PUBMED   270752
+REFERENCE   13  (residues 1 to 142)
+  AUTHORS   Cohen-Solal,M., Manesse,B., Thillet,J. and Rosa,J.
+  TITLE     Haemoglobin G Norfolk alpha 85 (F6) Asp leads to Asn. Structural
+            characterization by sequenator analysis and functional properties of
+            a new variant with high oxygen affinity
+  JOURNAL   FEBS Lett. 50 (2), 163-167 (1975)
+   PUBMED   234399
+COMMENT     REVIEWED REFSEQ: This record has been curated by NCBI staff. The
+            reference sequence was derived from Z84721.1, BC101846.1 and
+            AI064720.1.
+            Summary: The human alpha globin gene cluster located on chromosome
+            16 spans about 30 kb and includes seven loci: 5'- zeta - pseudozeta
+            - mu - pseudoalpha-1 - alpha-2 - alpha-1 - theta - 3'. The alpha-2
+            (HBA2) and alpha-1 (HBA1) coding sequences are identical. These
+            genes differ slightly over the 5' untranslated regions and the
+            introns, but they differ significantly over the 3' untranslated
+            regions. Two alpha chains plus two beta chains constitute HbA,
+            which in normal adult life comprises about 97% of the total
+            hemoglobin; alpha chains combine with delta chains to constitute
+            HbA-2, which with HbF (fetal hemoglobin) makes up the remaining 3%
+            of adult hemoglobin. Alpha thalassemias result from deletions of
+            each of the alpha genes as well as deletions of both HBA2 and HBA1;
+            some nondeletion alpha thalassemias have also been reported.
+            [provided by RefSeq, Jul 2008].
+            Publication Note:  This RefSeq record includes a subset of the
+            publications that are available for this gene. Please see the Gene
+            record to access additional publications.
+            ##Evidence-Data-START##
+            Transcript exon combination :: AK223392.1, CB994937.1 [ECO:0000332]
+            ##Evidence-Data-END##
+FEATURES             Location/Qualifiers
+     source          1..142
+                     /db_xref="taxon:9606"
+                     /organism="Homo sapiens"
+                     /chromosome="16"
+                     /map="16p13.3"
+     Protein         1..142
+                     /note="alpha one globin; hemoglobin alpha 1 globin chain;
+                     alpha-1 globin; hemoglobin alpha-1 chain; alpha-1-globin;
+                     alpha-globin; hemoglobin alpha chain; delta globin; alpha-2
+                     globin chain"
+                     /product="hemoglobin subunit alpha"
+                     /calculated_mol_wt="15126"
+     Site            2
+                     /note="glycation site"
+                     /experiment="experimental evidence, no additional details
+                     recorded"
+                     /citation="[7]"
+                     /citation="[9]"
+                     /site_type="glycosylation"
+     Region          3..142
+                     /note="Hemoglobin alpha, zeta, mu, theta, and related Hb
+                     subunits; cd08927"
+                     /db_xref="CDD:271278"
+                     /region_name="Hb-alpha_like"
+     Site            8
+                     /note="glycation site"
+                     /experiment="experimental evidence, no additional details
+                     recorded"
+                     /citation="[9]"
+                     /site_type="glycosylation"
+     Site            12
+                     /note="Not glycated; propagated from UniProtKB/Swiss-Prot
+                     (P69905.2)"
+                     /experiment="experimental evidence, no additional details
+                     recorded"
+                     /site_type="other"
+     Site            17
+                     /note="N6-acetyllysine, alternate; propagated from
+                     UniProtKB/Swiss-Prot (P69905.2)"
+                     /experiment="experimental evidence, no additional details
+                     recorded"
+                     /site_type="acetylation"
+     Site            17
+                     /note="glycation site"
+                     /experiment="experimental evidence, no additional details
+                     recorded"
+                     /citation="[7]"
+                     /citation="[9]"
+                     /site_type="glycosylation"
+     Site            25
+                     /experiment="experimental evidence, no additional details
+                     recorded"
+                     /citation="[6]"
+                     /site_type="phosphorylation"
+     Site            order(32,35..36,42..43,93,95..96,104,108,111..112,118..120,
+                     123..124,127,141..142)
+                     /note="tetramer interface [polypeptide binding]"
+                     /db_xref="CDD:271278"
+                     /site_type="other"
+     Site            order(33,43..44,59,62..63,66,84,88,98..99,102,137)
+                     /note="heme binding site [chemical binding]"
+                     /db_xref="CDD:271278"
+                     /site_type="other"
+     Site            43
+                     /experiment="experimental evidence, no additional details
+                     recorded"
+                     /citation="[6]"
+                     /site_type="phosphorylation"
+     Site            57
+                     /note="Not glycated; propagated from UniProtKB/Swiss-Prot
+                     (P69905.2)"
+                     /experiment="experimental evidence, no additional details
+                     recorded"
+                     /site_type="other"
+     Site            61
+                     /note="Not glycated; propagated from UniProtKB/Swiss-Prot
+                     (P69905.2)"
+                     /experiment="experimental evidence, no additional details
+                     recorded"
+                     /site_type="other"
+     Site            62
+                     /note="glycation site"
+                     /experiment="experimental evidence, no additional details
+                     recorded"
+                     /citation="[7]"
+                     /citation="[9]"
+                     /site_type="glycosylation"
+     Site            91
+                     /note="Not glycated; propagated from UniProtKB/Swiss-Prot
+                     (P69905.2)"
+                     /experiment="experimental evidence, no additional details
+                     recorded"
+                     /site_type="other"
+     Site            100
+                     /note="Not glycated; propagated from UniProtKB/Swiss-Prot
+                     (P69905.2)"
+                     /experiment="experimental evidence, no additional details
+                     recorded"
+                     /site_type="other"
+     CDS             1..142
+                     /coded_by="NM_000558.4:67..495"
+                     /gene="HBA1"
+                     /gene_synonym="HBA-T3; HBH"
+                     /db_xref="CCDS:CCDS10399.1"
+                     /db_xref="GeneID:3039"
+                     /db_xref="HGNC:HGNC:4823"
+                     /db_xref="HPRD:00784"
+                     /db_xref="MIM:141800"
+ORIGIN
+        1 mvlspadktn vkaawgkvga hageygaeal ermflsfptt ktyfphfdls hgsaqvkghg
+       61 kkvadaltna vahvddmpna lsalsdlhah klrvdpvnfk llshcllvtl aahlpaeftp
+      121 avhasldkfl asvstvltsk yr
+//
