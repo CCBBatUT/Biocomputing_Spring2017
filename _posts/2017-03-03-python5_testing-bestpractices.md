@@ -3,7 +3,7 @@ layout: post
 title: "Python V: Best Practices and Testing"
 instructor: Katie
 permalink: /python5_bestpractices/
-materials: files/python6.zip
+materials: files/python5.zip
 ---
 
 
