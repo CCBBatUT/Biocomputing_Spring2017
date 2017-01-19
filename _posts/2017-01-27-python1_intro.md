@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python I: Operators and Variable types"
-instructor: Stephanie
+instructor: Katie
 permalink: /python1_introduction/
 materials: files/python1_cheatsheet.pdf
 ---

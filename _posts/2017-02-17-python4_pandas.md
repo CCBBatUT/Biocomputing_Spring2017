@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python IV: File Input/Output and Parsing"
-instructor: Becca
+instructor: Claire
 permalink: /python4_fileio/
 materials: files/python4.zip
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python II: Control Flow"
-instructor: Becca
+instructor: Claire
 permalink: /python2_controlflow/
 materials: files/python2_cheatsheet.pdf
 ---

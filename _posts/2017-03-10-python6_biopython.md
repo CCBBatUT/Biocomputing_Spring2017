@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python V: Sequence Analysis with Biopython"
-instructor: Stephanie
+instructor: Claire
 permalink: /python5_biopython/
 materials: files/python5.zip
 ---

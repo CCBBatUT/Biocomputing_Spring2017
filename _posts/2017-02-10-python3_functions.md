@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python III: Functions and Debugging Strategies"
-instructor: Stephanie
+instructor: Katie
 permalink: /python3_functions/
 materials: files/python3.zip
 ---
