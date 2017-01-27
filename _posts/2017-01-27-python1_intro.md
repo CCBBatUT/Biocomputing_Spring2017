@@ -6,7 +6,10 @@ permalink: /python1_introduction/
 materials: files/python1_cheatsheet.pdf
 ---
 
-## Object-oriented programming
+## Python: a super-awesome interpreted language
+Python (like R) is an **interpreted** language, as opposed to a **compiled** one. In language like C, you must take your code and run it through a compiler before executing it. Python code executes without this extra step. It runs a little slower, but it's so much easier to debug without compiling over and over again.
+
+## Python: an object-oriented language
 Python is an object-oriented programming (OOP) language. Simply put, this means that data structures (e.g. variables) have certain properties, in particular **attributes** and **methods**. Attributes are usually descriptive features of the object, and methods are certain actions (functions) you can perform on the object itself. For example, consider a book. Books are physical objects with certain **attributes**, such as number of pages, number of words, dimensions (width, height, depth), cover art, etc. Similarly, there are several actions (**methods**) that we can do with books like reading, writing, throwing at people we hate, and sharing with people we love. A given realization of an object is called an **instance**. To continue with the book metaphor, "The Count of Monte Christo" and "Harry Potter" are each instances of book objects.
 
 While these concepts might seem abstract, python syntax and behavior will make much more sense in light of the OOP paradigm upon which the language is based. In particular, attributes and methods are accessed in systematic ways, as follows:
@@ -28,6 +31,57 @@ mybook.throw_at_bad_people("Voldemort") # methods might take particular argument
 
 As you see, attributes and methods are called after a `. at the end of the instance name. Unlike attributes, however, methods end with parentheses. Sometimes, methods can take particular **arguments** which relate to their function, for example when we threw the book at Voldemort.
 
+## How to run Python code
+If you type "python" or possibly "python3" into a Mac or Linux terminal or Windows cmd window, you will enter the python interpreter. Here, you can type commands directly into the program, **but** it's tricky to save what you did. This is where scripts come in. You can write a script in a text editor and run it directly from the command line using a command like "python myscript.py" with any necessary arguments at the end.
+
+There are also python IDEs (interactive development environments), similar to RStudio for R. IDEs like Spyder or PyCharm allow you to use the interpreter, write scripts, and execute the whole scripts or just certain lines of code.
+
+
+## Variables
+We assign values to a variable using the equals sign, `=`.
+
+{% highlight python %}
+>>> a = 5
+>>> # Check that the variable was correctly assigned using the print() function
+>>> print(a)
+5
+{% endhighlight %}
+
+## Basic types
+There are so many types of objects both in base python and in the additional packages. However, there are a few very basic types that you will work with over and over. If you are familiar with R or another language, you will recognize these types.
+
+Variable Type   | Description | Defining | Casting
+---------|--------------|---------
+integer | whole number  | int() | int()      
+float   | decimal number | float() | int()
+string  | ordered, immutable character container | " " or ' ' | str() 
+list    | ordered, mutable container | [ ] | list()
+dictionary | unordered, mutable container | { } | dict()
+tuple | ordered, immutable container | ( ) | tuple()
+
+What do you think is meant by ordered/unordered, mutable/immutable, and container? What about defining and casting?
+
+Remember, every time you create a variable, you are creating an **instance** of that particular variable type. As a consequence, there are certain properties (attributes and methods!) associated with each type of variable.
+
+### Integers and floats
+Integers and floats are python's primary types for dealing with numbers. 
+
+Integers are whole numbers only, but floats include decimal places. Whether a variable is an integer or float turns out to matter a lot - if you perform an operation with integers, the result will be an integer (even if the "real" answer is actually a float!)
+
+{% highlight python %}
+>>> a = 6
+>>> type(a)
+<type 'int'>
+>>> # We can change the type of a variable by using casting
+>>> a = float(a)
+>>> type(a)
+<type 'float'>
+
+>>> # By adding a decimal point during assignment, we force the variable to be a float
+>>> b = 6.
+>>> type(b)
+<type 'float'>
+{% endhighlight %}
 
 ## Operators
 
@@ -71,83 +125,14 @@ True
 {% endhighlight %}
 
 
-## Variables
-We assign values to a variable using the equals sign, `=`.
-
-{% highlight python %}
->>> a = 5
->>> # Check that the variable was correctly assigned using the print() function
->>> print(a)
-5
-{% endhighlight %}
-
-
-All variables have a certain **type**. The variable type deterines what can be done with the variable itself. Standard python types include the following,
-
-
-Variable Type   | Description | Defining | Casting
----------|--------------|---------
-integer | whole number  | int() | int()      
-float   | decimal number | float() | int()
-string  | ordered, immutable character container | " " or ' ' | str() 
-list    | ordered, mutable container | [ ] | list()
-dictionary | unordered, mutable container | { } | dict()
-tuple | ordered, immutable container | ( ) | tuple()
-
-Remember, every time you create a variable, you are creating an **instance** of that particular variable type. As a consequence, there are certain properties (attributes and methods!) associated with each type of variable.
-
-### Integers and floats
-Integers and floats are python's primary types for dealing with numbers. 
-
-Integers are whole numbers only, but floats include decimal places. Whether a variable is an integer or float turns out to matter a lot - if you perform an operation with integers, the result will be an integer (even if the "real" answer is actually a float!)
-
-{% highlight python %}
->>> a = 6
->>> type(a)
-<type 'int'>
->>> # We can change the type of a variable by using casting
->>> a = float(a)
->>> type(a)
-<type 'float'>
-
->>> # CAUTION: Variables can easily be reassigned
->> a = 11
->>> print a
-11
-
->>> # By adding a decimal point during assignment, we force the variable to be a float
->>> b = 6.
->>> type(b)
-<type 'float'>
-
->>> # Be careful If you perform operations with only integers, the result will always be an integer (rounding determines answer)
->>> x = 5
->>> y = 6
->>> x/y
-0
->>> # One way to circumvent this issue is by casting the result as a float
->>> float(x / y)  
-0.8333333333333334
->>> # Note that the above division will NOT change the casting of either x or y themselves
->>> x / y
-0
->>> # Another solution would be to define either/both x or y as a float from the beginning
->>> x = 5.
->>> y = 6
->>> x / y
-0.8333333333333334
-{% endhighlight %}
-
 ### Strings
-In python, a string is an **immutable** container of **characters**. By "immutable", we mean that it can't be changed - that is, once you create a string, you can't rewrite certain parts of it. It's an all-or-nothing thing. By characters, we basically mean "not numbers" - consequently, no mathematical operations can be done on strings. 
+In python, a string is an **immutable** container of **characters**. By "immutable", we mean that it can't be changed - that is, once you create a string, you can't rewrite certain parts of it. It's an all-or-nothing thing. By characters, we basically mean "not numbers".
 
-Strings are also **ordered**. This means we can **index** characters in a string, using brackets `[ ]`. 
-
-Python indexes **starting at 0**, meaning the first item in a given string is the 0th entry.
+Strings are also **ordered**. This means we can **index** characters in a string, using brackets `[ ]`. Remember Python indices start with **ZERO**!
 
 {% highlight python %}
 >>> # Assign strings using quotation marks
->>> name = "Stephanie"
+>>> name = "Squidward"
 >>> type(name)
 <type 'str'>
 >>> # Find length with function len() [note that this function works for most variable types]
@@ -179,7 +164,7 @@ TypeError: unsupported operand type(s) for -: 'str' and 'int'
 >>> name = float(name)
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-ValueError: could not convert string to float: Stephanie
+ValueError: could not convert string to float: Squidward
 
 >>> # Strings are ordered, so we can index them
 >>> name[5]
@@ -230,7 +215,7 @@ Here are some useful **string methods**:
 
 
 ### Lists
-Lists are defined using brackets `[ ]`, and each list item can be any variable type. 
+Lists are ordered, mutable containers. They are defined using brackets `[ ]`, and each list item can be any variable type. 
 
 {% highlight python %}
 >>> # This list contains only integers
@@ -241,11 +226,7 @@ Lists are defined using brackets `[ ]`, and each list item can be any variable t
 {% endhighlight %}
 
 <br>
-Python lists are incredibly flexible. Like strings, they are ordered, so they support indexing. 
-
-However, unlike strings, lists are **mutable**, meaning they can be changed! List items can be removed, changed, and new list items can even be added after they are defined. 
-
-In other words, lists can be changed **in place without needed to reassign the variable with an =**. 
+Python lists are incredibly flexible. Like strings, they are ordered, so they support indexing. List items can be removed, changed, and new list items can even be added after they are defined. In other words, lists can be changed **in place** without needed to reassign the variable with an **=**. 
 
 {% highlight python %}
 >>> simple = [1,4,9,2,5,11]
@@ -286,6 +267,38 @@ simple
 2
 {% endhighlight %}
 
+## Indexing/Slicing
+In general, indexing follows the paradigm `container[x:y:z]`, where x is the starting index, y is the ending index, and z is the step. However, you do not need to provide all of these value to index.
+
+**Most importantly**, the starting index is *inclusive* but the ending index is *exclusive*. See below for examples.
+
+{% highlight python %}
+>>> fib_list = [0,1,1,2,3,5,8,13,21,34,55,89]
+
+>>> # Select the 3rd item
+fib_list[3]
+1
+
+>>> # Select the 3rd from last item with a negative index
+fib_list[-3]
+34
+
+>>> # Select multiple items with the syntax [x:y], where x is the starting index and y is the ending index. Note that y is *not* included
+>>> # Select items indexed 1-4
+>>> fib_list[1:5]
+[1, 1, 2, 3]
+
+
+>>> # If you don't provide x or y, python defaults to either the first or last index
+>>> fib_list[:5] # same as writing fib_list[0:5]
+[0, 1, 1, 2, 3]
+>>> fib_list[5:] # same as writing fib_list[5:12]
+[5, 8, 13, 21, 34, 55, 89]
+
+>>> # Change the step of indexing with the format x:y:z (before, z was defaulted to 1!)
+>>> fib_list[2:10:3]
+[1, 5, 21]
+{% endhighlight %}
 
 ### Dictionaries
 Dictionaries are defined using braces `{ }`, and they are essentially **unordered** lists of key:value pairs, and they are python's version of "associative arrays." Keys and values can be any type, although typically keys are either integers, floats, or strings. Dictionaries are incredibly useful for storing information; all keys must be unique, but values may be repeated.
@@ -332,41 +345,6 @@ TypeError: 'tuple' object does not support item assignment
 {% endhighlight %}
 
 
-## Indexing
-In general, indexing follows the paradigm `container[x:y:z]`, where x is the starting index, y is the ending index, and z is the step. However, you do not need to provide all of these value to index.
-
-**Most importantly**, the starting index is *inclusive* but the ending index is *exclusive*. See below for examples.
-
-{% highlight python %}
->>> fib_list = [0,1,1,2,3,5,8,13,21,34,55,89]
-
->>> # Select the 3rd item
-fib_list[3]
-1
-
->>> # Select the 3rd from last item with a negative index
-fib_list[-3]
-34
-
->>> # Select multiple items with the syntax [x:y], where x is the starting index and y is the ending index. Note that y is *not* included
->>> # Select items indexed 1-4
->>> fib_list[1:5]
-[1, 1, 2, 3]
-
-
->>> # If you don't provide x or y, python defaults to either the first or last index
->>> fib_list[:5] # same as writing fib_list[0:5]
-[0, 1, 1, 2, 3]
->>> fib_list[5:] # same as writing fib_list[5:12]
-[5, 8, 13, 21, 34, 55, 89]
-
->>> # Change the step of indexing with the format x:y:z (before, z was defaulted to 1!)
->>> fib_list[2:10:3]
-[1, 5, 21]
-{% endhighlight %}
-
-
-
 ## Other useful functions
 
 The `len()` function returns the length of a container (list, dictionary, string, tuple)
@@ -380,10 +358,10 @@ The `len()` function returns the length of a container (list, dictionary, string
 {% endhighlight %}
 
 <br>
-The `range()` function creates an arithmetic list, by default starting from zero and with a step of 1
+The `range()` function creates an generator (another type of object), by default starting from zero and with a step of 1
 {% highlight python %}
 >>> simple_range = range(20)
->>> simple_range
+>>> list(simple_range)
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 >>> complex_range = range(5, 20) # start from 5
 [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
