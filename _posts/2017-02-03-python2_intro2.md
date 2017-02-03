@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python II: Control Flow"
-instructor: Claire
+instructor: Katie
 permalink: /python2_controlflow/
 materials: files/python2_cheatsheet.pdf
 ---
@@ -85,22 +85,7 @@ Let's try something a bit more complicated. Here we can do a repeat of a mathema
 
 {% highlight python %}
 >>> sequences=['AGTCTA','AGTCAGTCAGTCAGT','ACTAGCTAGCTA','ACGTCAGTATCGTATTTTA','ACAGTCAGTGATCA','AGT','AGCTAGCTAGCTACGATGCTAGCTAGC'] #create our list
->>> for seq in sequences: #for each sequence in the list
-...     length=len(seq) #calculate the length
-...     Gcontent=seq.count('G') #count the number of Gs
-...     Ccontent=seq.count('C') #count the number of Cs
-...     Tcontent=seq.count('T') #count the number of Ts
-...     Acontent=seq.count('A') #count the number of As
-...     GCcontent=(Gcontent+Ccontent)/float(length) #calculate the GC content
-...     print "GC content of %s is %f" %(seq,GCcontent) 
-... 
-GC content of AGTCTA is 0.333333
-GC content of AGTCAGTCAGTCAGT is 0.466667
-GC content of ACTAGCTAGCTA is 0.416667
-GC content of ACGTCAGTATCGTATTTTA is 0.315789
-GC content of ACAGTCAGTGATCA is 0.428571
-GC content of AGT is 0.333333
-GC content of AGCTAGCTAGCTACGATGCTAGCTAGC is 0.518519
+
 
 {% endhighlight %}
 
@@ -108,40 +93,12 @@ But, if you see in this code, there is a calculation that is repeated four times
 
 {% highlight python %}
 >>> GCdict={} #create an empty dictionary that we will fill with GCcontent values
->>> for seq in sequences:
-...     seqdict={} #create another empty dictionary to *temporarily* store ACGT counts
-...     length=len(seq)
-...     for nuc in ['A','G','C','T']: #for each nucleotide
-...             seqdict[nuc]=seq.count(nuc) #count the number of nucleotides in the sequence
-...     GCcontent=(seqdict['G']+seqdict['C'])/float(length) #what happens if you don't do float()?
-...		GCdict[seq]=GCcontent
-...     print "GC content of %s is %f" %(seq,GCcontent)
-... 
-GC content of AGTCTA is 0.333333
-GC content of AGTCAGTCAGTCAGT is 0.466667
-GC content of ACTAGCTAGCTA is 0.416667
-GC content of ACGTCAGTATCGTATTTTA is 0.315789
-GC content of ACAGTCAGTGATCA is 0.428571
-GC content of AGT is 0.333333
-GC content of AGCTAGCTAGCTACGATGCTAGCTAGC is 0.518519
+>>> # hint: use "for nuc in ['A', 'C', 'G', 'T']
+
 
 {% endhighlight %}
 
 Now we can check what is in our dictionary.
-
-{% highlight python %}
->>> for key in GCdict:
-...     print '%s: %f' %(key,GCdict[key])
-... 
-ACAGTCAGTGATCA: 0.428571
-ACGTCAGTATCGTATTTTA: 0.315789
-ACTAGCTAGCTA: 0.416667
-AGTCAGTCAGTCAGT: 0.466667
-AGCTAGCTAGCTACGATGCTAGCTAGC: 0.518519
-AGTCTA: 0.333333
-AGT: 0.333333
-
-{% endhighlight %}
 
 A quick note: you can do for loops in bash too!
 
@@ -249,13 +206,7 @@ else:
 
 {% highlight python %}
 seqs=['AUUGACAUCGAUCGA','AGACTGATCGATCTAG','JIEONONE']
-for seq in seqs:
-	if 'U' in seq:
-		print '%s is RNA' %seq
-	elif 'T' in seq:
-		print '%s is DNA' %seq
-	else:
-		print '%s might be a protein' %seq
+
 {% endhighlight %}
 
 
@@ -470,12 +421,7 @@ examples:
 # from the for loop above, make a random 100-bp DNA sequence
 import random
 # LOOP
->>> dna='AGCT'
->>> seq=[]
->>> for i in range(100):
-... 	seq.append(random.choice(dna))
-...
->>> seq=''.join(seq)
+
 
 # COMPREHENSION
 >>> seq=''.join([random.choice(dna) for i in range(100)])
