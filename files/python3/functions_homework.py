@@ -1,5 +1,5 @@
 # SJS
-# UT Peer-led Biocomputing group, Spring 2016
+# UT Peer-led Biocomputing group
 # Functions HW
 
 # Clean up this script such that it contains *3* functions, templates for which are provided.

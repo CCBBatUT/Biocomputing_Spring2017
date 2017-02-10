@@ -21,7 +21,8 @@ Functions should be an integral component of your scripts/program, allowing for 
 Functions are defined using a `def` statement and their contents are indicated with whitespace (as with if, for, while):
 
 {% highlight python %}
-# Basic anatomy of a function which takes a single argument and returns a single value, x
+# Basic anatomy of a function which takes a single argument and returns a single value, 
+
 def name_of_function(argument):
     # code
     # Calculate value of x
@@ -33,12 +34,16 @@ The input argument (`argument`) exists only with the **scope** of this function,
 
 For example, we can create a simple function that adds two numbers together. First, think about the actual task of addition itself: you are given two numbers, you add them together, and then you report the result.
 
+
+
 {% highlight python %}
-# Simple addition function. 
+# Instead of doing a calculation outside a function like:
+>> sum = 85 + 6
+
+# We can make a simple, reusable addition function. 
 def addition(x, y):
     sum = x + y
     return sum
-
 
 >>> # We can now use the function with arbitrary input arguments. 
 >>> addition(85, 6)
