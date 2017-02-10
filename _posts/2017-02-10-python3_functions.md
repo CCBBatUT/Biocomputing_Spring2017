@@ -1,10 +1,13 @@
 ---
 layout: post
 title: "Python III: Functions and Debugging Strategies"
-instructor: Katie
+instructor: Claire
 permalink: /python3_functions/
 materials: files/python3.zip
 ---
+
+
+
 
 Functions are an integral part of programming. They are self-contained pieces of code which provide instructions for a given task. Functions are *called* with certain input, *execute* the code specified, and then *return* specified value(s) from the calculations performed. The presence of a function in a program does not guarantee that it will run - functions must be explicitly called to run. 
 
@@ -21,6 +24,7 @@ Functions are defined using a `def` statement and their contents are indicated w
 # Basic anatomy of a function which takes a single argument and returns a single value, x
 def name_of_function(argument):
     # code
+    # Calculate value of x
     # more code
     return x
 {% endhighlight %}
@@ -34,10 +38,7 @@ For example, we can create a simple function that adds two numbers together. Fir
 def addition(x, y):
     sum = x + y
     return sum
-    
-# Another way to write the same function
-def addition2(x, y):
-    return x + y
+
 
 >>> # We can now use the function with arbitrary input arguments. 
 >>> addition(85, 6)
