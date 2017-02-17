@@ -22,15 +22,18 @@ I'm going to demonstrate a few different ways to open and look at files, and we 
 
 Here's an example of a script to read a list of species and locations and split into east and west coast samples. 
 
+I have an input file of mice and their geographic origin, and I want to separate into two files of mice from the east coast and from the west coast. 
+
+
+identified_samples.txt
+---
+
 mouse1 california
-
 mouse2 maryland
-
 mouse3 new_york
-
 mouse4 oregon
 
-
+sort_coasts.py
 {% highlight python %}
 
     westcoast = ['california', 'oregon']
@@ -42,20 +45,23 @@ mouse4 oregon
     east_output = open("eastcoast_samples.csv", "w") # Staging a new file to write to
     
     #Stage input file we're getting data from
-    
     input = open("identified_samples.txt", "r") # Open as read-only
-    
+
+    #.readlines() makes each line in a file an element of a list
+
     data = input.readlines() # Read contents of file and save to contents variable
-    
+
+    #data looks like ['mouse1 california\n', 'mouse2 maryland\n', 'mouse3 new_york\n', 'mouse4 oregon\n']     
+
     for raw_line in data:
         #The first line looks like: 'mouse1 california\n'
     
         line = raw_line.strip("\n") #The end line character of a line is invisible, but generally you get rid of it right away
     
         #The formatted line looks like: 'mouse1 california'
-    
+
         samp_loc = line.split(" ")
-    
+
         #The listified line looks like ['mouse1', 'california']
     
         #Check where the sample comes from and save it to the appropriate file
@@ -87,12 +93,14 @@ You can imagine each pandas dataframe as an excel sheet, with rows and columns a
     eastcoast = ['maryland', 'new_york']
 
 
-    df = read.table("identified_samples.txt", sep=" ", header=None)
+    df = pd.read_table("identified_samples.txt", sep=" ", header=None)
+    print("raw dataframe)
     print(df)
     
     #Give the columns names
     # You could also just use columns numbers, but I like to name my columns
-    #df.columns = ['ID', 'location']
+    df.columns = ['ID', 'location']
+    print("with named columns")
     print(df)
     
     #Filter values.
@@ -101,7 +109,7 @@ You can imagine each pandas dataframe as an excel sheet, with rows and columns a
     east_df = df[df['location'].isin(eastcoast)]
     
     west_df.to_csv('westcoast_samples.csv', index=False, header=False)
-
+    east_df.to_csv('westcoast_samples.csv', index=False, header=False)
 {% endhighlight %}
 
 
@@ -137,10 +145,14 @@ ex. $ python sort_coasts.py identified_samples_march.txt --sep=','
 {% highlight python %}
     import argparse
  
-    parser.add_argument('inputfile', action="store", type=str, required=True,  help="one group per line")
-    parser.add_argument('--sep', action="store", type=str, default=' ', required=False, help="separator for input file")
+    parser = argparse.ArgumentParser(description='A function to divide samples by geographic origin into new files')
+
+    parser.add_argument('filename', action="store", type=str,  help="one group per line")
+    parser.add_argument('--sep', action="store", dest="separator", type=str, default=' ', required=False, help="separator for input file")
     inputs = parser.parse_args()
-    open(inputs.inputfile, sep=inputs.sep)
+    df = pd.read_table(inputs.filename, sep=inputs.separator, header=None)
+
+
 
 {% endhighlight %}
 
@@ -175,7 +187,7 @@ Bonus: Write your own custom parser for a file type you deal with often.
 
 
 
-### More variants
+#### More variants of file IO
 
 Open and close with open() and close()
 {% highlight python %}  
