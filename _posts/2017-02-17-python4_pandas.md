@@ -22,54 +22,55 @@ I'm going to demonstrate a few different ways to open and look at files, and we 
 
 Here's an example of a script to read a list of species and locations and split into east and west coast samples. 
 
-{% highlight %}
 mouse1 california
+
 mouse2 maryland
+
 mouse3 new_york
+
 mouse4 oregon
-{% endhighlight %}
 
 
 {% highlight python %}
 
-westcoast = ['california', 'oregon']
-eastcoast = ['maryland', 'new_york']
-
-#Stage output files to write to
-
-west_output = open("westcoast_samples.csv", "w") # Staging a new file to write to
-east_output = open("eastcoast_samples.csv", "w") # Staging a new file to write to
-
-#Stage input file we're getting data from
-
-input = open("identified_samples.txt", "r") # Open as read-only
-
-data = input.readlines() # Read contents of file and save to contents variable
-
-for raw_line in data:
-    #The first line looks like: 'mouse1 california\n'
-
-    line = raw_line.strip("\n") #The end line character of a line is invisible, but generally you get rid of it right away
-
-    #The formatted line looks like: 'mouse1 california'
-
-    samp_loc = line.split(" ")
-
-    #The listified line looks like ['mouse1', 'california']
-
-    #Check where the sample comes from and save it to the appropriate file
-    if samp_loc[1] in westcoast:   
-
-        west_output.write(raw_line)
-
-    elif samp_loc[1] in eastcoast:
-
-        east_output.write(raw_line)
- 
-
-input.close() # Close file when finished (important!!)
-east_output.close()
-west_output.close()
+    westcoast = ['california', 'oregon']
+    eastcoast = ['maryland', 'new_york']
+    
+    #Stage output files to write to
+    
+    west_output = open("westcoast_samples.csv", "w") # Staging a new file to write to
+    east_output = open("eastcoast_samples.csv", "w") # Staging a new file to write to
+    
+    #Stage input file we're getting data from
+    
+    input = open("identified_samples.txt", "r") # Open as read-only
+    
+    data = input.readlines() # Read contents of file and save to contents variable
+    
+    for raw_line in data:
+        #The first line looks like: 'mouse1 california\n'
+    
+        line = raw_line.strip("\n") #The end line character of a line is invisible, but generally you get rid of it right away
+    
+        #The formatted line looks like: 'mouse1 california'
+    
+        samp_loc = line.split(" ")
+    
+        #The listified line looks like ['mouse1', 'california']
+    
+        #Check where the sample comes from and save it to the appropriate file
+        if samp_loc[1] in westcoast:   
+    
+            west_output.write(raw_line)
+    
+        elif samp_loc[1] in eastcoast:
+    
+            east_output.write(raw_line)
+     
+    
+    input.close() # Close file when finished (important!!)
+    east_output.close()
+    west_output.close()
 
 {% endhighlight %}
 
@@ -80,26 +81,26 @@ Pandas is a package for looking at data in a table format
 You can imagine each pandas dataframe as an excel sheet, with rows and columns and values
 
 {% highlight python %}
-import pandas as pd
+    import pandas as pd
 
-westcoast = ['california', 'oregon']
-eastcoast = ['maryland', 'new_york']
+    westcoast = ['california', 'oregon']
+    eastcoast = ['maryland', 'new_york']
 
 
-df = read.table("identified_samples.txt", sep=" ", header=None)
-print(df)
-
-#Give the columns names
-# You could also just use columns numbers, but I like to name my columns
-#df.columns = ['ID', 'location']
-print(df)
-
-#Filter values.
-#Syntax is 'get rows where it's true that the value in 'location' is in the list westcoast'
-west_df = df[df['location'].isin(westcoast)]
-east_df = df[df['location'].isin(eastcoast)]
-
-west_df.to_csv('westcoast_samples.csv', index=False, header=False)
+    df = read.table("identified_samples.txt", sep=" ", header=None)
+    print(df)
+    
+    #Give the columns names
+    # You could also just use columns numbers, but I like to name my columns
+    #df.columns = ['ID', 'location']
+    print(df)
+    
+    #Filter values.
+    #Syntax is 'get rows where it's true that the value in 'location' is in the list westcoast'
+    west_df = df[df['location'].isin(westcoast)]
+    east_df = df[df['location'].isin(eastcoast)]
+    
+    west_df.to_csv('westcoast_samples.csv', index=False, header=False)
 
 {% endhighlight %}
 
@@ -117,11 +118,11 @@ like: $ python sort_coasts.py identified_samples_february.txt
 With sys, anything you put after the python x.py is stored as a list that you can then access.
 
 {% highlight python %}
-import sys
+    import sys
 
-filename = sys.argv[1]
+    filename = sys.argv[1]
 
-input = open(filename, sep=" ")
+    input = open(filename, sep=" ")
 {% endhighlight %}
 
 
@@ -134,12 +135,12 @@ What if I want to add an optional option to tell the program what the delimiter 
 ex. $ python sort_coasts.py identified_samples_march.txt --sep=','
 
 {% highlight python %}
-import argparse
-
-parser.add_argument('inputfile', action="store", type=str, required=True,  help="one group per line")
-parser.add_argument('--sep', action="store", type=str, default=' ', required=False, help="separator for input file")
-inputs = parser.parse_args()
-
+    import argparse
+ 
+    parser.add_argument('inputfile', action="store", type=str, required=True,  help="one group per line")
+    parser.add_argument('--sep', action="store", type=str, default=' ', required=False, help="separator for input file")
+    inputs = parser.parse_args()
+    open(inputs.inputfile, sep=inputs.sep)
 
 {% endhighlight %}
 
@@ -177,32 +178,32 @@ Bonus: Write your own custom parser for a file type you deal with often.
 ### More variants
 
 Open and close with open() and close()
-{% highlight python %}
-file_handle = open("important_file.txt", "r") # Open as read-only
-contents = file_handle.readlines() # Read contents of file and save to contents variable
-file_handle.close() # Close file when finished (important!!)
+{% highlight python %}  
+    file_handle = open("important_file.txt", "r") # Open as read-only
+    contents = file_handle.readlines() # Read contents of file and save to contents variable
+    file_handle.close() # Close file when finished (important!!)
 {% endhighlight %}
 
 Open with the *with* control flow command. The file automatically closes outside the scope of the with. This is what I prefer to use.
 {% highlight python %}
-with open("important_file.txt", "r") as file_handle:
-  contents = file_handle.readlines()
+    with open("important_file.txt", "r") as file_handle:
+        contents = file_handle.readlines()
 {% endhighlight %}
 
 The `open()` function takes two arguments: i) the *name* (including full or relative path!) of the file to open, and ii) the *mode* in which the file should be read. Modes include read-only (`"r"`), write-only (`"w"`), append (`"a"`), or read+write (`"rw"` for PCs and `"r+"` for Mac/Linux). Writing and appending are similar to the bash operators `>` and `>>`; write will overwrite the file, but append will add to the bottom of an existing file. Note that if you open a file for writing (or appending), that file doesn't need to exist already, and a new file will be created with the specified name. Alternatively, if you attempt to open a file that does not exist for reading, you'll receive an error message.
 
 {% highlight python %}
-# Open a file for writing, and write to it
-file_handle = open("file_to_fill.txt", "w") # Open file for writing
-file_handle.write("I'm writing a sentence to this file!")
-file_handle.close()
+    # Open a file for writing, and write to it
+    file_handle = open("file_to_fill.txt", "w") # Open file for writing
+    file_handle.write("I'm writing a sentence to this file!")
+    file_handle.close()
 {% endhighlight %}
 
 Open a file for appending, and append text to it
 {% highlight python %}
-file_handle = open("file_to_fill.txt", "a")
-file_handle.write("I'm writing another line to this existing file!")
-file_handle.close()
+    file_handle = open("file_to_fill.txt", "a")
+    file_handle.write("I'm writing another line to this existing file!")
+    file_handle.close()
 {% endhighlight %}
 
 
@@ -213,27 +214,27 @@ When interacting with files, we usually want to examine and perform computations
 
 ## Other ways to do it
 {% highlight python %}
-# Read file line-by-line with .readlines() [Note that this is slow for *MASSIVE* files because it reads in and stores the whole file]
-with open("file.txt", "r") as f:
-    lines = f.readlines()
-    for line in lines:
-        print line
-    # To loop another time, you must direct the readlines iterator to start from the top! The same would go for .read().
-    f.seek(0)
-    for line in lines:
-        print line
-        
-# Read file as one line, and then break into separate lines using the newline character
-with open("file.txt", "r") as f:
-    contents = f.read()
-    contents_list = contents.split("\n") # Split file contents on newline character
-    for line in contents_list:
-        print line
-        
-# To go line by line, you could also use a simple for loop. This avoids saving the whole file.
-with open("file.txt", "r") as f:
-    for line in f:
-        print line
-        
+    # Read file line-by-line with .readlines() [Note that this is slow for *MASSIVE* files because it reads in and stores the whole file]
+    with open("file.txt", "r") as f:
+        lines = f.readlines()
+        for line in lines:
+            print line
+        # To loop another time, you must direct the readlines iterator to start from the top! The same would go for .read().
+        f.seek(0)
+        for line in lines:
+            print line
+            
+    # Read file as one line, and then break into separate lines using the newline character
+    with open("file.txt", "r") as f:
+        contents = f.read()
+        contents_list = contents.split("\n") # Split file contents on newline character
+        for line in contents_list:
+            print line
+            
+    # To go line by line, you could also use a simple for loop. This avoids saving the whole file.
+    with open("file.txt", "r") as f:
+        for line in f:
+            print line
+            
 {% endhighlight %}
 
