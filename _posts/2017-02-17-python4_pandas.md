@@ -45,11 +45,11 @@ sort_coasts.py
     east_output = open("eastcoast_samples.csv", "w") # Staging a new file to write to
     
     #Stage input file we're getting data from
-    input = open("identified_samples.txt", "r") # Open as read-only
+    input_handle = open("identified_samples.txt", "r") # Open as read-only
 
     #.readlines() makes each line in a file an element of a list
 
-    data = input.readlines() # Read contents of file and save to contents variable
+    data = input_handle.readlines() # Read contents of file and save to contents variable
 
     #data looks like ['mouse1 california\n', 'mouse2 maryland\n', 'mouse3 new_york\n', 'mouse4 oregon\n']     
 
@@ -74,7 +74,7 @@ sort_coasts.py
             east_output.write(raw_line)
      
     
-    input.close() # Close file when finished (important!!)
+    input_handle.close() # Close file when finished (important!!)
     east_output.close()
     west_output.close()
 
@@ -94,7 +94,7 @@ You can imagine each pandas dataframe as an excel sheet, with rows and columns a
 
 
     df = pd.read_table("identified_samples.txt", sep=" ", header=None)
-    print("raw dataframe)
+    print("raw dataframe")
     print(df)
     
     #Give the columns names
@@ -113,7 +113,7 @@ You can imagine each pandas dataframe as an excel sheet, with rows and columns a
 {% endhighlight %}
 
 
-## Adding command line input.
+# Adding command line input.
 
 So far, I hard coded these filenames into my scripts.
 
@@ -130,7 +130,7 @@ With sys, anything you put after the python x.py is stored as a list that you ca
 
     filename = sys.argv[1]
 
-    input = open(filename, sep=" ")
+    input_handle = open(filename, sep=" ")
 {% endhighlight %}
 
 
@@ -159,7 +159,7 @@ ex. $ python sort_coasts.py identified_samples_march.txt --sep=','
 
 ## File parsing ##
 
-Several examples of file parsing are available in [python4_files](python4_files/). Please go ahead and download these files. 
+Several examples of file parsing are available in [files](python4_files_io/). Please go ahead and download these files. 
 
 
 The file `parse_delimited.py` contains examples for parsing and extracting information from csv and tab-delimited files (AbilAhuG_uniprot_blastx.txt and AbilAhuG_uniprot_blastx.csv). Note that these are the same file, except one is tab-delimited and one is comma-delimited.
