@@ -159,16 +159,13 @@ ex. $ python sort_coasts.py identified_samples_march.txt --sep=','
 
 ## File parsing ##
 
-Several examples of file parsing are available in [files](python4_files_io/). Please go ahead and download these files. 
+Several examples of file parsing are available in [files](files/python4_files_io/). Please go ahead and download these files. 
 
 
 The file `parse_delimited.py` contains examples for parsing and extracting information from csv and tab-delimited files (AbilAhuG_uniprot_blastx.txt and AbilAhuG_uniprot_blastx.csv). Note that these are the same file, except one is tab-delimited and one is comma-delimited.
 
 
 The `parse_hyphy.py` file has four versions of a script that custom parses an output file from the program Hyphy. This is so you can see how writing a script progresses as it is refined.
-
-
-You may want to use more regular expressions while parsing data. These are found in the **re module**, which I am not covering in detail today. **Regular expressions** are essentially flexible pattern-matching symbols (see the lesson Cheatsheet) for some commonly-used regex's. The `re` module, and indeed regular expressions in general, are extremely powerful and endlessly useful. Note that the `re` module has many, many more available functions associated with it (see the [re module documentation](https://docs.python.org/2/library/re.html)) beyond what is discussed here!! Several examples of `re` functions used to parse the file `mammal_dat.nex` are shown in the file `parse_mammals.py`.
 
 
 ## Homework ##
