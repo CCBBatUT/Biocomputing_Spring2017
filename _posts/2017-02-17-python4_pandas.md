@@ -29,8 +29,11 @@ identified_samples.txt
 ---
 
 mouse1 california
+
 mouse2 maryland
+
 mouse3 new_york
+
 mouse4 oregon
 
 sort_coasts.py
