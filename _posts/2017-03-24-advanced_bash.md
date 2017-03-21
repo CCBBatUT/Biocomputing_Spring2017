@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Advanced Bash"
-instructor: Katie
+instructor: Devon
 permalink: /advanced_bash/
 materials: 
 ---
@@ -71,7 +71,7 @@ Another very useful Bash tool is called "redirection". Simply, this means we tak
 ls | grep "prot"
 ~~~
 
-The "ls" command prints to the screen a list of all the current files in our working directory. This list is the output of the process "ls". The pipe | then redirects this output to become the input of the grep process, which searches on the string "prot", and returns to the screen only those filenames with "prot", and no others. By itself, "ls" would not have been so specific. 
+The "ls" command prints to the screen a list of all the current files in our working directory. This list is the output of the process "ls". The pipe \| then redirects this output to become the input of the grep process, which searches on the string "prot", and returns to the screen only those filenames with "prot", and no others. By itself, "ls" would not have been so specific. 
 
 Another form of redirection uses >, and >>. The single caret takes the output of a process and prints it to a new file. The double caret >> appends, or adds, the output of the preceding process to the end of an existing file. 
 
