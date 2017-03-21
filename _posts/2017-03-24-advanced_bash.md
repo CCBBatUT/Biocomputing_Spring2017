@@ -1,3 +1,11 @@
+---
+layout: post
+title: "Advanced Bash"
+instructor: Katie
+permalink: /advanced_bash/
+materials: 
+---
+
 #Advanced Bash Scripting
 
 ##Loops
