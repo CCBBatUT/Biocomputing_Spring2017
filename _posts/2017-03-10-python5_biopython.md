@@ -6,7 +6,7 @@ permalink: /python5_biopython/
 materials: files/python6.zip
 ---
 
-Biopython is a tour-de-force Python library which contains a variety of modules for analyzing and manipulating biological data in Python. While this library has lots of functionality, it is primarily useful for dealing with sequence data and querying online databases (such as NCBI or UniProt) to obtain information about sequences.
+Biopython is a tour-de-force Python library which contains a variety of modules for analyzing and manipulating biological data in Python. While this library has lots of functionality, it is primarily useful for dealing with sequence data and querying online databases (such as NCBI or UniProt or the Protein Data Bank) to obtain information about sequences.
 This [online tutorial](http://biopython.org/DIST/docs/tutorial/Tutorial.html) describes nearly all the capabilities (with examples!) of things to do with Biopython (`ctrl+F` is your friend here!). 
 
 ## Download and install
@@ -16,7 +16,7 @@ You may need to download and install Biopython on your system. Instructions for 
 
 ## Reading and parsing sequence files
 
-Biopython is an ideal tool for reading and writing sequence data. Biopython has two main modules for this purpose: `SeqIO` (sequence input-output) and `AlignIO` (alignment input-output). Each of these modules has two primary (although there are others!) functions: `read` and `parse`. The `read` function will read in a file with a single sequence or alignment, and the `parse` function will read in a file with multiple sequences or multiple sequence alignments. Each function takes two arguments: the file name and the sequence format (e.g. fasta, phylip, etc.)
+Biopython is an ideal tool for reading and writing sequence data. Biopython has two main modules for this purpose: `SeqIO` (sequence input-output) and `AlignIO` (multiple sequence alignment input-output). Each of these modules has two primary (although there are others!) functions: `read` and `parse`. The `read` function will read in a file with a single sequence or alignment, and the `parse` function will read in a file with multiple sequences or multiple sequence alignments. Each function takes two arguments: the file name and the sequence format (e.g. fasta, phylip, etc.)
 
 <br>
 Biopython parses sequence files into Biopython data structures, known as `SeqRecord` objects. Each sequence has several attributes (which you can examine with `dir()`), but the most important ones are `.seq`, `.id`, and `.description`.
@@ -38,18 +38,6 @@ Record ID: 2 Record sequence: ATCGATACA
 Record ID: 3 Record sequence: ATACGAATAGCCTATACGTAGCATGCATGGGCTATAATTTTTT
 
 {% endhighlight %}
-
-
-{% highlight python %}
->>> from Bio import AlignIO
-
->>> # Read in a file of un-aligned sequences. Turn into list with list() (otherwise remains generator, which is fine, but you can't index)
->>> seqs = list( SeqIO.parse("seqs.fasta", "fasta") )
-
->>> # Read in an alignment file
->>> align = AlignIO.read("pb2.phy", "phylip-relaxed")
-{% endhighlight %}
-
 
 ## Manipulating Biopython objects
 
@@ -104,7 +92,6 @@ Biopython supports sequence records to file in a format that you can specify:
 >>> SeqIO.write(my_biopython_seqrec, "newseq.fasta", "fasta") 
 
 >>> # Write multiple sequences to file by providing SeqIO with a list of SeqRecord objects
->>> # Note that AlignIO.write works just like this!
 >>> rec1 = SeqRecord(my_biopython_seq, id = "seq1")
 >>> rec2 = SeqRecord(my_biopython_seq, id = "seq2")
 >>> rec3 = SeqRecord(my_biopython_seq, id = "seq3")
@@ -115,13 +102,13 @@ Biopython supports sequence records to file in a format that you can specify:
 <br>
 Note that, in many circumstances, it is easiest to write sequences to file using regular file writing, in particular if you want to save in FASTA format. This will require looping over a list (or dictionary!) which contains the sequences to write.
 {% highlight python %}
->>> # Assume sequence_records is a list of biopython objects.
+>>> # If sequence_records is a list of biopython objects.
 >>> output_file = "sequences.fasta"
 >>> with open(output_file, "w") as outf:
 ...    for record in sequence_records:
 ...        outf.write(">" + str(record.id) + "\n" + str(record.seq) + "\n")
 
->>> # Now sequence_records is a dictionary containing {id:sequence, id:sequence...}
+>>> # If sequence_records is a dictionary containing {id:sequence, id:sequence...}
 >>> output_file = "sequences.fasta"
 >>> with open(output_file, "w") as outf:
 ...    for record in sequence_records:
@@ -129,9 +116,8 @@ Note that, in many circumstances, it is easiest to write sequences to file using
 {% endhighlight %}        
 
 
-
 ## Converting file formats
-Biopython makes it very straight-forward to convert between sequence file formats - simply read in a file and write it out in the new format, or use the handy .convert() method. Again, these methods work with both `AlignIO()` and `SeqIO()`.
+Biopython makes it very straight-forward to convert between sequence file formats - simply read in a file and write it out in the new format, or use the handy .convert() method.
 
 {% highlight python %}
 >>> # Change file formats
@@ -189,7 +175,7 @@ Any (yes, any!) NCBI database can be queried with the `Entrez` module in Biopyth
 
 {% highlight python %}
 >>> from Bio import Entrez, SeqIO
->>> Entrez.email = "stephanie.spielman@gmail.com" # Entrez will give you warning messages when a email is not specified. This prevents warnings. Please replace with your email though!!
+>>> Entrez.email = "claire.mcwhite@utexas.edu" # Entrez will give you warning messages when a email is not specified. This prevents warnings. Please replace with your email though!!
 
 >>> protein_id = "NP_000549.1"
 
@@ -319,20 +305,6 @@ The above CDS feature information tells us that the coding sequence record in NC
 
 
 
-## Practice Exercises
-
-1. Using the included `pb2.fasta` alignment file, create a new alignment file (also in FASTA format) containing the sequences converted into their reverse complements. For this exercise, try using a dictionary structure to loop over the data. Also, you may find the Biopython `.reverse_complement()` helpful! Try saving the file and/or converting the resulting file to a different alignment format, such as phylip or Stockholm (see [here](http://biopython.org/wiki/AlignIO#File_Formats) for available alignment formats in Biopython).
-
-2. In the `pb2.fasta` file, you'll notice that some of the IDs begin with `"Hu_"` and others begin with `"Av_"`. These indicators tell you whether or not the pb2 sequence is from an influenza strain that infects humans (Hu) or avians (Av). For this exercise, determine the difference in average GC content between human-infecting and avian-infecting sequences. For this exercise, you will need to use the string method `.startswith("XXX")` to determine if a given sequence ID is human- or avian-infecting. This method returns True or False depending if a given sting starts with the provided argument. For example:
-{% highlight python %}
-"stephanie".startswith("s") # Returns True
-"stephanie".startswith("S") # Returns False.. method is case-sensitive!
-
-mystring = "Hu_126472"
-mystring.startswith("Hu_") # Returns True
-mystring.startswith("Av_") # Returns False
-{% endhighlight %}
-
-
+Document originally authored by Stephanie Spielman - slightly modified for 2017  by Claire McWhite
 
 
