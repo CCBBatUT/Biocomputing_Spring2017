@@ -6,9 +6,9 @@ permalink: /advanced_bash/
 materials: 
 ---
 
-#Advanced Bash Scripting
+# Advanced Bash Scripting
 
-##Loops
+## Loops
 Claire already introduced us to a simple for loop in Bash syntax, but let's revisit thisto refresh our memories:
 
 ~~~
@@ -63,7 +63,7 @@ done
 
 This is simply another way of thinking about the countdown or count-up. It still specifies a conditional statement that is evaluated as T or F. Whereas the "while" loop continues until the conditional statement becomes False, the until loop continues until the conditional statement becomes true. This can be a useful way to structure certain operations you may wish to create. 
 
-##Redirection
+## Redirection
 
 Another very useful Bash tool is called "redirection". Simply, this means we take the output of one process and turn it directly into input for another, without manually needing to restart the process each time. For example, say we wish to list all the files in our current directory that contain the string 'prot': proteome, protein, protozoan, etc. We would do this most efficiently like this: 
 
@@ -83,7 +83,7 @@ ls | grep "prot" > protfiles.txt
 
 This complex command combines two forms of redirection. You can build incredibly useful and complex commands yourself by taking advantage of these three operators. 
 
-##Regex
+## Regex
 
 You're lives are incomplete. I know you have been searching for something to fulfill that void in your hearts. Well, today is the day that void is filled...with regular expressions! Seriously, regex can change your life. It changed mine more than religion ever could. 
 
@@ -93,7 +93,7 @@ Here are two amazing sites to play with building your very own regular expressio
 
 Trust me, these will be your favorite things. 
 
-##File Manipulation with sed and awk
+## File Manipulation with sed and awk
 
 Two amazingly useful tools you will combine with your new knowledge of regex are sed and awk. These programs allow you to manipulate the contents of files without ever opening them, using pattern matching and potentially saving you hundreds of hours of having to go file by file manually correcting your mistakes. 
 
@@ -125,7 +125,7 @@ awk '{ print $2 "\t" $1 }' file > file.tmp && mv file.tmp file
 Not too bad, though, right?
 
 
-##Exercises
+## Exercises
 1. Loops and renaming
         A. Generate 1000 files with the form <#.file.dat> using any loop you like.
         B. Rename these files to be of the form <file_#.dat> using zmv.
