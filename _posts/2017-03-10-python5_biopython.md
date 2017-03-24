@@ -128,6 +128,13 @@ Biopython makes it very straight-forward to convert between sequence file format
 >>> AlignIO.convert("file.fasta", "fasta", "newfile.phy", "phylip")
 {% endhighlight %}
 
+
+## Biopython utilities
+
+sequtil 
+
+
+
 ## Interacting with sequence alignments
 
 Here are some useful methods for manipulating sequence alignments:
