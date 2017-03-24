@@ -9,7 +9,7 @@ materials:
 # Advanced Bash Scripting
 
 ## Loops
-Claire already introduced us to a simple for loop in Bash syntax, but let's revisit thisto refresh our memories:
+Claire already introduced us to a simple for loop in Bash syntax, but let's revisit this to refresh our memories:
 
 ~~~
 for i in 1 2 3 4 5; do
@@ -85,7 +85,7 @@ This complex command combines two forms of redirection. You can build incredibly
 
 ## Regex
 
-You're lives are incomplete. I know you have been searching for something to fulfill that void in your hearts. Well, today is the day that void is filled...with regular expressions! Seriously, regex can change your life. It changed mine more than religion ever could. 
+Your lives are incomplete. I know you have been searching for something to fulfill that void in your hearts. Well, today is the day that void is filled...with regular expressions! Seriously, regex can change your life. It changed mine more than religion ever could. 
 
 Here are two amazing sites to play with building your very own regular expressions. 
 1) [regexr.com](http://regexr.com/)
@@ -103,7 +103,7 @@ sed 's/pattern/replacement/g' file
 
 This is the general form of a sed expression. However, this will exactly replace the string "pattern" with "replacement" in the entire file. But, sed is much more flexible than this, and can incorporate regex as well. Use [this site](https://www.gnu.org/software/sed/manual/html_node/Regular-Expressions.html) to fulfill all your sed regex desires. 
 
-awk is similar to sed, but it's syntax is different and it is better equipped for certain tasks, like column manipulation or row manipulation. 
+awk is similar to sed, but its syntax is different and it is better equipped for certain tasks, like column manipulation or row manipulation. 
 
 ~~~
 awk '{ print $1 "\t" $2 }' file
@@ -123,6 +123,38 @@ awk '{ print $2 "\t" $1 }' file > file.tmp && mv file.tmp file
 ~~~
 
 Not too bad, though, right?
+
+##Simple batch file renaming
+
+There exist many ways to rename a huge number of files in just a few lines. My favorite takes advantage of the z-shell, which is an alternative to Bash. You can switch to
+z-shell by typing zsh at your prompt, and back to bash by typing bash.
+
+Now, the trick to easy file renaming within the zsh is to use a command called zmv. But, first we need to load it using autoload.
+
+~~
+zsh
+autoload -U zmv
+~~
+
+Once loaded, you can type zmv with some arguments specifying how to change your files. Let's take a quick and easy example. Say we have 1000 files named file_1.txt, file_2.txt, etc. We want to move the number to be before the word "file". This is super super easy with zmv. If all the files are in the same directory, you just have to type:
+
+~~
+zmv '(*)_(*).txt' '$2_$1.txt'
+~~
+
+This takes advantage of the regular expression * (called splat), which matches anything, while _ matches specifically an underscore, and .txt matches specifically the string .txt. By putting () around the splats, we have "captured" these wildcards and stored them in the variables $1 and $2, which we can then reference when defining our replacement string. Try it!
+
+Oh, quick hint: the command to generate a single new file is
+
+~~
+touch filename
+~~
+
+
+
+
+
+
 
 
 ## Exercises
