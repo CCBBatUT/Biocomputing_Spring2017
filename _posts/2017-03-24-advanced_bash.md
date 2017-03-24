@@ -124,7 +124,7 @@ awk '{ print $2 "\t" $1 }' file > file.tmp && mv file.tmp file
 
 Not too bad, though, right?
 
-##Simple batch file renaming
+## Simple batch file renaming
 
 There exist many ways to rename a huge number of files in just a few lines. My favorite takes advantage of the z-shell, which is an alternative to Bash. You can switch to
 z-shell by typing zsh at your prompt, and back to bash by typing bash.
