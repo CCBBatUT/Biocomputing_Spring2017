@@ -131,30 +131,24 @@ z-shell by typing zsh at your prompt, and back to bash by typing bash.
 
 Now, the trick to easy file renaming within the zsh is to use a command called zmv. But, first we need to load it using autoload.
 
-~~
+~~~
 zsh
 autoload -U zmv
-~~
+~~~
 
 Once loaded, you can type zmv with some arguments specifying how to change your files. Let's take a quick and easy example. Say we have 1000 files named file_1.txt, file_2.txt, etc. We want to move the number to be before the word "file". This is super super easy with zmv. If all the files are in the same directory, you just have to type:
 
-~~
+~~~
 zmv '(*)_(*).txt' '$2_$1.txt'
-~~
+~~~
 
 This takes advantage of the regular expression * (called splat), which matches anything, while _ matches specifically an underscore, and .txt matches specifically the string .txt. By putting () around the splats, we have "captured" these wildcards and stored them in the variables $1 and $2, which we can then reference when defining our replacement string. Try it!
 
 Oh, quick hint: the command to generate a single new file is
 
-~~
+~~~
 touch filename
-~~
-
-
-
-
-
-
+~~~
 
 
 ## Exercises
