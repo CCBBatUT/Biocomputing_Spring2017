@@ -7,8 +7,6 @@ materials:
 ---
 
 
-# Version control with git and github
-
 Have you ever created multiple copies of a folder in order to try
 different things with your code without losing previous parts that have worked?
 Well, there's an easier way, with version control!
